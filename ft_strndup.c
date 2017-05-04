@@ -18,7 +18,7 @@ char	*ft_strndup(const char *s1, size_t len)
 	char	*str;
 
 	i = 0;
-	str = (char*)ft_memalloc((len + 1) * sizeof(s1));
+	str = (char*)ft_memalloc((len + 1) * sizeof(char));
 	if (!str)
 		return (0);
 	while (len--)
