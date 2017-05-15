@@ -90,10 +90,14 @@ $(OBJ): %.o: %.c
 
 $(NAME): $(OBJ)
 	@ar rc $(NAME) $(OBJ)
+	@echo "\033[32mLibft Created\033[0m"
+
 clean:
 	@rm -f $(OBJ)
+	@echo "\033[31mLibft Removed\033[0m"
 
 fclean: clean
 	@rm -f $(NAME)
+	@echo "\033[31mLibft Removed\033[0m"
 
 re: fclean all
