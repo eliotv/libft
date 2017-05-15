@@ -12,13 +12,13 @@
 
 #include "libft.h"
 
-char			*ft_itoa(int n)
+char			*ft_itoa(long long n)
 {
-	char	*str;
-	long	num;
-	size_t	len;
+	char		*str;
+	long long	num;
+	size_t		len;
 
-	len = ft_count_int_len(n);
+	len = ft_count_int_len(n, 10);
 	num = n;
 	str = (char*)malloc(len);
 	if (!str)

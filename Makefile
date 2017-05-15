@@ -20,6 +20,7 @@ SRC = ft_atoi.c \
 	  ft_isdigit.c \
 	  ft_isprint.c \
 	  ft_itoa.c \
+	  ft_itoa_base.c \
 	  ft_lstadd.c \
 	  ft_lstdel.c \
 	  ft_lstdelone.c \
@@ -35,12 +36,14 @@ SRC = ft_atoi.c \
 	  ft_memmove.c \
 	  ft_memset.c \
 	  ft_putchar.c \
+	  ft_putnchar.c \
 	  ft_putchar_fd.c \
 	  ft_putendl.c \
 	  ft_putendl_fd.c \
 	  ft_putnbr.c \
 	  ft_putnbr_fd.c \
 	  ft_putstr.c \
+	  ft_putstrn.c \
 	  ft_putstr_fd.c \
 	  ft_strcat.c \
 	  ft_strchar.c \
@@ -80,7 +83,7 @@ SRC = ft_atoi.c \
 
 OBJ = $(SRC:.c=.o)
 
-all: $(NAME)
+all:  $(NAME)
 
 $(OBJ): %.o: %.c
 	@gcc -c $(CFLAG) $< -o $@

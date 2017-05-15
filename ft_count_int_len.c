@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-size_t	ft_count_int_len(int n)
+size_t	ft_count_int_len(long long n, int base)
 {
 	size_t	i;
 
@@ -24,7 +24,7 @@ size_t	ft_count_int_len(int n)
 	}
 	if (n < 0)
 		i++;
-	while (n /= 10)
+	while (n /= base)
 		i++;
 	return (i);
 }
