@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 NAME = libft.a
-CFLAG = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 SRC = ft_atoi.c \
 	  ft_bzero.c \
 	  ft_isalnum.c \
@@ -86,7 +86,7 @@ OBJ = $(SRC:.c=.o)
 all:  $(NAME)
 
 $(OBJ): %.o: %.c
-	@gcc -c $(CFLAG) $< -o $@
+	@gcc -c $(CFLAGS) $< -o $@
 
 $(NAME): $(OBJ)
 	@ar rc $(NAME) $(OBJ)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: evanheum <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: evanheum <evanheum@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/27 17:29:52 by evanheum          #+#    #+#             */
-/*   Updated: 2017/03/20 17:41:34 by evanheum         ###   ########.fr       */
+/*   Updated: 2017/06/02 10:29:40 by evanheum         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,9 @@ int					ft_isalpha(int c);
 int					ft_isascii(int c);
 int					ft_isdigit(int c);
 int					ft_isprint(int c);
-char				*ft_itoa(long long n);
-char				*ft_itoa_base(long long value, int base);
+char				*ft_itoa(intmax_t n);
+char				*ft_itoa_base(intmax_t value, int base);
+char				*ft_u_itoa_bs(uintmax_t value, int base);
 void				*ft_memalloc(size_t size);
 void				*ft_memccpy(void *dst, const void *src, int c, size_t n);
 void				*ft_memchr(const void *s, int c, size_t n);
@@ -47,7 +48,7 @@ void				ft_putendl(char const *s);
 void				ft_putendl_fd(char const *s, int fd);
 void				ft_putnbr(int n);
 void				ft_putnbr_fd(int n, int fd);
-void				ft_putstr(char *str);
+void				ft_putstr(char const *str);
 void				ft_putstrn(char *str, intmax_t len);
 void				ft_putstr_fd(char const *s, int fd);
 char				*ft_strcat(char *s1, const char *s2);
@@ -90,6 +91,7 @@ void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 int					ft_count_wrd(char const *swrd, char c);
 int					ft_count_c(char const *str, char c);
-size_t				ft_count_int_len(long long n, int base);
+size_t				ft_count_int_len(intmax_t n, int base);
+size_t				ft_count_unint_len(uintmax_t n, int base);
 int					ft_isspace(int c);
 #endif
