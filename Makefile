@@ -3,24 +3,30 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: evanheum <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: evanheum <evanheum@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/27 12:52:19 by evanheum          #+#    #+#              #
-#*   Updated: 2017/03/10 15:46:08 by evanheum         ###   ########.fr       *#
+#    Updated: 2017/06/13 12:19:44 by evanheum         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
+NAME = megalibft.a
+
 CFLAGS = -Wall -Wextra -Werror
-SRC = ft_atoi.c \
+
+LIBFT = ft_atoi.c \
 	  ft_bzero.c \
+	  ft_count_c.c \
+	  ft_count_int_len.c \
+	  ft_count_unint_len.c \
+	  ft_count_wrd.c \
 	  ft_isalnum.c \
 	  ft_isalpha.c \
 	  ft_isascii.c \
 	  ft_isdigit.c \
 	  ft_isprint.c \
-	  ft_itoa.c \
 	  ft_itoa_base.c \
+	  ft_itoa.c \
 	  ft_lstadd.c \
 	  ft_lstdel.c \
 	  ft_lstdelone.c \
@@ -78,26 +84,46 @@ SRC = ft_atoi.c \
 	  ft_toupper.c \
 	  ft_count_wrd.c \
 	  ft_count_c.c \
-	  ft_count_int_len.c \
 	  ft_isspace.c \
+	  ft_u_itoa_bs.c \
 
-OBJ = $(SRC:.c=.o)
+GET_NEXT_LINE = get_next_line.c
+
+FT_PRINTF = ft_printf.c \
+			build.c \
+			conversion.c \
+			conversion2.c \
+			flagmod.c \
+			functionfinder.c \
+			lengthmod.c \
+			percisionmod.c \
+			widthmod.c \
+			print.c \
+			print2.c \
+
+FILES =		$(addprefix libft/, $(LIBFT)) \
+			$(addprefix get_next_line/, $(GET_NEXT_LINE)) \
+			$(addprefix ft_printf/, $(FT_PRINTF)) \
+
+SRC = $(addprefix src/, $(FILES))
+
+OBJ = *.o \
 
 all:  $(NAME)
 
-$(OBJ): %.o: %.c
-	@gcc -c $(CFLAGS) $< -o $@
+$(NAME): $(SRC)
+	@gcc $(CFLAGS) -c $(SRC)
+	@echo "\033[32m -- Object Files Created --\n\033][0m"
 
-$(NAME): $(OBJ)
 	@ar rc $(NAME) $(OBJ)
-	@echo "\033[32mLibft Created\033[0m"
+	@echo "\033[   -- MEGALibft.a Created --"
 
 clean:
 	@rm -f $(OBJ)
-	@echo "\033[31mLibft Removed\033[0m"
+	@echo "\033[31m -- Object Files Removed --\033[0m"
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo "\033[31mLibft Removed\033[0m"
+	@echo "\033[31m   -- MEGALibft.a Removed --\033[0m"
 
 re: fclean all
