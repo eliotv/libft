@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = megalibft.a
+NAME = libft.a
 
 CFLAGS = -Wall -Wextra -Werror
 
@@ -116,7 +116,7 @@ $(NAME): $(SRC)
 	@echo "\033[32m -- Object Files Created --\n\033][0m"
 
 	@ar rc $(NAME) $(OBJ)
-	@echo "\033[   -- MEGALibft.a Created --"
+	@echo "\033[   -- Libft.a Created --"
 
 clean:
 	@rm -f $(OBJ)
@@ -124,6 +124,6 @@ clean:
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo "\033[31m   -- MEGALibft.a Removed --\033[0m"
+	@echo "\033[31m   -- Libft.a Removed --\033[0m"
 
 re: fclean all
