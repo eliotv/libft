@@ -6,9 +6,12 @@
 /*   By: evanheum <evanheum@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 14:37:02 by evanheum          #+#    #+#             */
-/*   Updated: 2017/11/14 12:47:54 by evanheum         ###   ########.fr       */
+/*   Updated: 2017/12/14 15:55:27 by evanheum         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "get_next_line.h"
+#include "stdio.h"
 
 #include "get_next_line.h"
 
@@ -64,7 +67,7 @@ int		get_next_line(const int fd, char **line)
 	int				nb_bytes;
 	static char		*str[4864];
 
-	if (fd < 0 || !line || BUFF_SIZE == 0)
+	if (fd < 0 || !line || BUFF_SIZE <= 0 || read(fd, buff, 0) < 0)
 		return (-1);
 	ft_bzero(buff, BUFF_SIZE + 1);
 	while ((nb_bytes = read(fd, &buff, BUFF_SIZE)) != 0)
@@ -77,6 +80,8 @@ int		get_next_line(const int fd, char **line)
 	}
 	if (ft_strlen(str[fd]))
 		return (end_of_file(str, fd, line));
+	if(!str[fd])	
+		return (-1);
 	ft_strdel(&str[fd]);
 	return (0);
 }
